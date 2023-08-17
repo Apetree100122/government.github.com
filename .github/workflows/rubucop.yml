@@ -1,25 +1,21 @@
-name:RuboCop linting
-
-on:'push
-'paths: 
-         Gemfile
-       ".rubocop.yml"
-      ".github/workflows/rubucop.yml"
-      "**/*.rb"
-  'pull_request:paths
-      "Gemfile"
-      ".rubocop.yml"
-       ".github/workflows/rubucop.yml"
-      "**/*.rb"
-
-jobs:build:runs-on:ubuntu-latest
-
+RuboCop linting:
+on|:
+push: 
+ paths: 
+"Gemfile
+"rubocop.yml
+'.github/workflows/rubucop.yml
+'*.rb
+pull_request: 
+paths:
+"Gemfile"
+".rubocop.yml"
+".github/workflows/rubucop.yml"     
+"**/*.rb"
+jobs:
+build:
+runs-on: 
+"ubuntu-latest
     "steps:actions/checkout@v2
-    - 'Set up Ruby
-      'ruby/setup-ruby@v1
-      'with:bundler-cache:true
-    - "Rubocop
-      'run:bundle 
-      'exec:rubocop 
-      '-D 
-      '-S
+'Setup: Ruby
+'ruby/setup-ruby@v1 with:bundler-cache:true"Rubocop run:bundle exec:rubocop -D -S
